@@ -77,5 +77,3 @@ export const google = async (req, res, next) => {
 //     next(error);
 //   }
 // };
-
-ohauughdf = <new>ahsdvs s y</new>;
