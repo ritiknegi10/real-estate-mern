@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   getDownloadURL,
   getStorage,
@@ -20,6 +21,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 export default function Profile() {
   const fileRef = useRef(null);
+  const navigate = useNavigate();
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
   const [filePerc, setFilePerc] = useState(0);
@@ -51,6 +53,7 @@ export default function Profile() {
       },
       (error) => {
         setFileUploadError(true);
+        console.log(error);
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
@@ -115,6 +118,7 @@ export default function Profile() {
         return;
       }
       dispatch(deleteUserSuccess(data));
+      navigate("/sign-up");
     } catch (error) {
       dispatch(deleteUserFailure(data.message));
     }
