@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="py-20 px-4 max-w-6xl mx-auto flex flex-col gap-4">
       <h1 className="text-4xl font-bold mb-4 text-slate-800">
-        About Sahand Estate
+        About Estate Ease
       </h1>
       <p className="mb-4 text-slate-700">
         At Estate Ease, we stand as the pinnacle of real estate excellence,
