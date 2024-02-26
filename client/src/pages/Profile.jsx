@@ -39,11 +39,15 @@ export default function Profile() {
   }, [file]);
 
   const handleFileUpload = (file) => {
-    const storage = getStorage(app);
-    const fileName = new Date().getTime() + file.name;
-    const storageRef = ref(storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    setFileUploadError(false);
 
+    const storage = getStorage(app);
+
+    const fileName = new Date().getTime() + file.name;
+
+    const storageRef = ref(storage, fileName);
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
